@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b07-bs-kb-real-1</title>
+  <meta name="description" content="t3b07-bs-kb-real-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://balsan-song-choice.program-school.online/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+ background-color: #0a0a0a;
+ color: #e0e0e0;
+ line-height: 1.7;
+ letter-spacing: -0.02em;
+ -webkit-font-smoothing: antialiased;
+ min-height: 100vh;
+ transition: background-color 0.3s ease;
+ }
+
+ body[data-theme="noir-gold"] {
+ background: linear-gradient(175deg, #0a0a0a 0%, #111111 50%, #0d0d0d 100%);
+ color: #d4d4d4;
+ }
+
+ body[data-build="8a3f1c2b"] {
+ border-top: 3px solid #c9a55c;
+ position: relative;
+ }
+
+ body[data-build="8a3f1c2b"]::before {
+ content: '';
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: radial-gradient(ellipse at 30% 20%, rgba(201, 165, 92, 0.03) 0%, transparent 60%),
+ radial-gradient(ellipse at 70% 80%, rgba(201, 165, 92, 0.02) 0%, transparent 60%);
+ pointer-events: none;
+ z-index: 0;
+ }
+
+ .x-side-nqde {
+ position: fixed;
+ top: 0;
+ right: -380px;
+ width: 380px;
+ height: 100vh;
+ background: #0d0d0d;
+ border-left: 1px solid rgba(201, 165, 92, 0.2);
+ z-index: 1000;
+ transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ padding: 120px 40px 40px;
+ overflow-y: auto;
+ box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+ }
+
+ .x-side-nqde.active {
+ right: 0;
+ }
+
+ .x-side-nqde .side-inner {
+ display: flex;
+ flex-direction: column;
+ gap: 2.5rem;
+ }
+
+ .x-side-nqde .side-section h3 {
+ font-size: 0.75rem;
+ text-transform: uppercase;
+ letter-spacing: 0.15em;
+ color: #c9a55c;
+ margin-bottom: 1.2rem;
+ font-weight: 500;
+ }
+
+ .x-side-nqde .side-section ul {
+ list-style: none;
+ display: flex;
+ flex-direction: column;
+ gap: 0.9rem;
+ }
+
+ .x-side-nqde .side-section ul li a {
+ color: #a0a0a0;
+ text-decoration: none;
+ font-size: 0.95rem;
+ transition: color 0.2s ease;
+ display: block;
+ padding: 0.3rem 0;
+ border-bottom: 1px solid rgba(255,255,255,0.03);
+ }
+
+ .x-side-nqde .side-section ul li a:hover {
+ color: #c9a55c;
+ }
+
+ .n-list-ho7w {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ z-index: 999;
+ padding: 1.2rem 2rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background: rgba(10,10,10,0.85);
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ border-bottom: 1px solid rgba(201, 165, 92, 0.15);
+ transition: all 0.3s ease;
+ }
+
+ .n-list-ho7w .logo-area {
+ font-size: 1.4rem;
+ font-weight: 700;
+ color: #c9a55c;
+ letter-spacing: 0.05em;
+ text-decoration: none;
+ }
+
+ .n-list-ho7w .logo-area span {
+ font-weight: 300;
+ color: #e0e0e0;
+ margin-left: 0.3rem;
+ font-size: 0.9rem;
+ }
+
+ .hamburger-menu {
+ width: 28px;
+ height: 22px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ cursor: pointer;
+ z-index: 1001;
+ background: none;
+ border: none;
+ padding: 0;
+ }
+
+ .hamburger-menu span {
+ display: block;
+ width: 100%;
+ height: 2px;
+ background: #c9a55c;
+ transition: all 0.3s ease;
+ transform-origin: center;
+ }
+
+ .hamburger-menu.active span:nth-child(1) {
+ transform: translateY(10px) rotate(45deg);
+ }
+
+ .hamburger-menu.active span:nth-child(2) {
+ opacity: 0;
+ }
+
+ .hamburger-menu.active span:nth-child(3) {
+ transform: translateY(-10px) rotate(-45deg);
+ }
+
+ .m-foot-cr8a {
+ background: #0a0a0a;
+ border-top: 1px solid rgba(201, 165, 92, 0.15);
+ padding: 3rem 2rem 2rem;
+ text-align: center;
+ color: #666;
+ font-size: 0.85rem;
+ letter-spacing: 0.05em;
+ }
+
+ .m-foot-cr8a .footer-links {
+ display: flex;
+ justify-content: center;
+ gap: 2rem;
+ margin-bottom: 1rem;
+ flex-wrap: wrap;
+ }
+
+ .m-foot-cr8a .footer-links a {
+ color: #888;
+ text-decoration: none;
+ transition: color 0.3s ease;
+ }
+
+ .m-foot-cr8a .footer-links a:hover {
+ color: #c9a55c;
+ }
+
+ .x-body-l5yj {
+ max-width: 820px;
+ margin: 0 auto;
+ padding: 7rem 2rem 4rem;
+ position: relative;
+ z-index: 1;
+ }
+
+ .m-card-vyqq {
+ background: rgba(20,20,20,0.7);
+ border: 1px solid rgba(201, 165, 92, 0.1);
+ border-radius: 2px;
+ padding: 2.5rem;
+ margin-bottom: 2.5rem;
+ transition: all 0.3s ease;
+ position: relative;
+ overflow: hidden;
+ }
+
+ .m-card-vyqq::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 3px;
+ height: 100%;
+ background: linear-gradient(180deg, #c9a55c 0%, transparent 100%);
+ opacity: 0.5;
+ }
+
+ .m-card-vyqq:hover {
+ border-color: rgba(201, 165, 92, 0.3);
+ background: rgba(25,25,25,0.8);
+ }
+
+ .m-card-vyqq.active {
+ border-color: rgba(201, 165, 92, 0.5);
+ background: rgba(30,30,30,0.9);
+ }
+
+ .m-card-vyqq h2 {
+ font-size: 1.8rem;
+ font-weight: 600;
+ color: #f0f0f0;
+ margin-bottom: 1.2rem;
+ letter-spacing: -0.02em;
+ line-height: 1.3;
+ }
+
+ .m-card-vyqq h3 {
+ font-size: 1.2rem;
+ font-weight: 500;
+ color: #c9a55c;
+ margin: 1.8rem 0 0.8rem;
+ letter-spacing: 0.03em;
+ }
+
+ .m-card-vyqq p {
+ margin-bottom: 1.2rem;
+ color: #b0b0b0;
+ font-size: 1rem;
+ }
+
+ .m-card-vyqq .highlight-box {
+ background: rgba(201, 165, 92, 0.05);
+ border-left: 2px solid #c9a55c;
+ padding: 1.2rem 1.5rem;
+ margin: 1.5rem 0;
+ font-style: italic;
+ color: #d0d0d0;
+ }
+
+ .m-card-vyqq ul {
+ list-style: none;
+ padding-left: 0;
+ margin: 1rem 0;
+ }
+
+ .m-card-vyqq ul li {
+ padding: 0.6rem 0;
+ padding-left: 1.5rem;
+ position: relative;
+ color: #b0b0b0;
+ border-bottom: 1px solid rgba(255,255,255,0.03);
+ }
+
+ .m-card-vyqq ul li::before {
+ content: '—';
+ position: absolute;
+ left: 0;
+ color: #c9a55c;
+ font-weight: 300;
+ }
+
+ .m-card-vyqq nav {
+ display: flex;
+ gap: 1.5rem;
+ flex-wrap: wrap;
+ margin-top: 1.5rem;
+ padding-top: 1.5rem;
+ border-top: 1px solid rgba(201, 165, 92, 0.1);
+ }
+
+ .m-card-vyqq nav a {
+ color: #c9a55c;
+ text-decoration: none;
+ font-size: 0.95rem;
+ font-weight: 500;
+ letter-spacing: 0.03em;
+ transition: color 0.3s ease;
+ padding-bottom: 0.2rem;
+ border-bottom: 1px solid transparent;
+ }
+
+ .m-card-vyqq nav a:hover {
+ color: #e0c080;
+ border-bottom-color: #c9a55c;
+ }
+
+ .m-top-b6b6 {
+ text-align: center;
+ margin-bottom: 3.5rem;
+ }
+
+ .m-top-b6b6 h1 {
+ font-size: 2.8rem;
+ font-weight: 700;
+ color: #f5f5f5;
+ letter-spacing: -0.03em;
+ line-height: 1.2;
+ margin-bottom: 1rem;
+ }
+
+ .m-top-b6b6 .subtitle {
+ font-size: 1.1rem;
+ color: #888;
+ font-weight: 300;
+ letter-spacing: 0.05em;
+ }
+
+ .m-top-b6b6 .divider {
+ width: 60px;
+ height: 2px;
+ background: #c9a55c;
+ margin: 1.5rem auto;
+ }
+
+ .overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0,0,0,0.6);
+ z-index: 999;
+ opacity: 0;
+ pointer-events: none;
+ transition: opacity 0.4s ease;
+ }
+
+ .overlay.active {
+ opacity: 1;
+ pointer-events: all;
+ }
+
+ @media (max-width: 768px) {
+ .n-list-ho7w {
+ padding: 1rem 1.5rem;
+ }
+ .x-body-l5yj {
+ padding: 90px 1.2rem 3rem;
+ }
+ .m-card-vyqq {
+ padding: 1.8rem;
+ }
+ .m-top-b6b6 h1 {
+ font-size: 2rem;
+ }
+ .x-side-nqde {
+ width: 85%;
+ right: -85%;
+ }
+ .m-card-vyqq h2 {
+ font-size: 1.5rem;
+ }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b07-bs-kb-real-1">
+  <meta property="og:description" content="t3b07-bs-kb-real-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://balsan-song-choice.program-school.online/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header class="n-list-ho7w">
+ <a href="/" class="logo-area">Balsan<span>Noir</span></a>
+ <button class="hamburger-menu" id="hamburger" aria-label="메뉴 열기">
+ <span></span>
+ <span></span>
+ <span></span>
+ </button>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 38개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0089.html">발산 노래방 내돈내산 경험담으로 알아보는 마곡 유흥 추천정보 가이드</a>
+        <p class="post-item__summary">동료들과 저녁 식사를 마친 뒤 가벼운 술자리를 찾다가 발산 노래방 내돈내산 방문을 결심한 적이 있습니다. 익숙하지 않은 지역에서 무작정 가게를 선택하다 보면 예상치 못한 난관에 부딪히기 십상입니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0090.html">발산 노래방 내돈내산 오해와 진실, 합정 노래방 추천정보 제대로 고르기</a>
+        <p class="post-item__summary">많은 분이 발산 노래방 내돈내산 후기를 보며 가격대만 높으면 무조건 좋은 시설이라고 오해하곤 합니다. 하지만 유흥 시설의 진정한 가치는 가격보다는 이용 시간대의 전략적 선택과 그에 따른 밀도 높은 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0091.html">발산 노래방 내돈내산 후기가 말하는 연남 클럽 추천정보 선택 기준</a>
+        <p class="post-item__summary">연남동 일대에서 즐거운 밤을 보내기 위해서는 인원 구성, 예산, 그리고 음악적 취향이라는 세 가지 필수 요소가 조화를 이루어야 합니다. 발산 노래방 내돈내산 사례에서 얻은 교훈처럼, 규모가 큰 곳보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0092.html">발산 노래방 내돈내산 정보로 본 합정 셔츠룸 추천정보 이용 비교법</a>
+        <p class="post-item__summary">여러분은 유흥 업소를 선택할 때 과연 무엇을 가장 중요한 기준으로 삼고 계십니까? 발산 노래방 내돈내산 검색을 해보신 분들이라면 알겠지만, 시설의 수준이나 서비스의 일관성은 직접 경험해 보지 않으면</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0093.html">발산 노래방 내돈내산 경험으로 본 공덕 가라오케 추천정보 활용법</a>
+        <p class="post-item__summary">많은 이들이 발산 노래방 내돈내산 후기를 찾아보며 검증된 장소를 찾으려 노력합니다. 하지만 타인의 주관적인 경험담은 어디까지나 참고용일 뿐, 실제 현장에서는 본인이 직접 판단 기준을 세우는 것이 중</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0094.html">발산 노래방 내돈내산 후기처럼 꼼꼼하게 따져보는 상수 마사지 추천정보</a>
+        <p class="post-item__summary">발산 노래방 내돈내산 콘텐츠를 소비할 때 우리가 가장 중요하게 생각하는 것은 정보의 진실성입니다. 이러한 깐깐한 시각은 마사지 샵을 선택할 때도 그대로 적용되어야 합니다. 상수 지역에서 힐링을 찾을</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0095.html">발산 노래방 내돈내산 체크할 때 주의할 망원 노래방 추천정보 예약 실패 사례</a>
+        <p class="post-item__summary">발산 노래방 내돈내산 정보가 범람하는 가운데, 많은 이용자가 정작 예약을 진행하며 낭패를 보는 경우가 많습니다. 특히 예약 단계에서 발생하는 실수는 즐거운 저녁 시간을 망치는 주범이 됩니다. 오늘은</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0096.html">발산 노래방 내돈내산 리뷰보다 정확한 홍대 노래방 추천정보 체크리스트</a>
+        <p class="post-item__summary">발산 노래방 내돈내산 후기들을 비교하며 홍대 지역에서 즐거운 시간을 보내려 한다면, 이제는 감에 의존하지 말고 체계적인 체크리스트를 활용해야 합니다. 위치와 접근성은 홍대와 같은 복잡한 도심에서 만</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0097.html">발산 노래방 내돈내산 경험으로 본 공덕 셔츠룸 추천정보 정리</a>
+        <p class="post-item__summary">가끔 동료들과 퇴근 후 가벼운 마음으로 발산 노래방 내돈내산 후기를 찾아보곤 합니다. 그러다 우연히 접하게 되는 여러 지역의 정보 중에서도 공덕 지역의 분위기는 다소 독특한 특징이 있습니다. 초행길</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0098.html">발산 노래방 내돈내산 후기처럼 솔직한 연남 유흥 추천정보 가이드</a>
+        <p class="post-item__summary">많은 이들이 발산 노래방 내돈내산 기록을 찾아보며 유흥업소에 대한 편견을 갖곤 합니다. 하지만 정작 현장에서는 그런 선입견과 달리 정돈된 환경에서 시간을 보내는 경우가 더 많습니다. 오해를 바로잡고</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0099.html">발산 노래방 내돈내산 경험담으로 알아보는 마곡 가라오케 추천정보</a>
+        <p class="post-item__summary">발산 노래방 내돈내산 경험이 쌓이다 보면 자연스럽게 인근 마곡 가라오케의 서비스 질을 비교하게 됩니다. 소규모 모임인지 아니면 단체 회식인지에 따라 고려해야 할 조건들이 완전히 달라집니다. 충족 조</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">발산 노래방 내돈내산</a>
+        <p class="post-item__summary">노래방은 대중적인 취미 활동 공간으로, 발산 지역에서도 다양한 형태로 운영되고 있습니다. 내돈내산이라는 키워드는 자신이 직접 비용을 지불하고 이용하는 경험을 바탕으로 정보를 공유한다는 의미로, 광고</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">발산 노래방 내돈내산</a>
+        <p class="post-item__summary">노래방을 이용하는 것은 스트레스를 해소하고 즐거운 시간을 보내는 데 도움이 되는 활동입니다. 발산 지역의 노래방을 찾을 때는 정확한 정보와 합리적인 선택이 필요합니다. 내돈내산은 소비자가 직접 비용</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/myth-002-1ymjem1.html">발산 노래방의 화려한 조명과 최신 기기 속에 숨겨진 심리적 장치들</a>
+        <p class="post-item__summary">발산 노래방 거리의 인테리어를 보면 다들 최신 유행이라며 찬양하지만 사실 이건 철저히 계산된 시각적 세뇌에 가깝습니다. 벽면에 배치된 화려한 엘이디 조명이나 현란한 색감의 소파는 단순히 분위기를 띄</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">발산 노래방 내돈내산</a>
+        <p class="post-item__summary">발산 지역 내에서 노래방을 이용하는 경우, 비용 대비 만족도를 높이는 선택은 다양한 요소를 고려해야 합니다. 업소별 분위기나 음향 설정, 노래 선택지 등이 모두 다르므로, 방문 전에 간단한 정보를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">발산 노래방 내돈내산 가이드</a>
+        <p class="post-item__summary">노래방을 찾은 후 귀가하거나 다음 일정으로 넘어가기 전에 반드시 준수해야 할 주의사항이 있습니다. 특히 발산 지역에서 혼자 방문하는 이용자라면 외부 환경에 대한 경각심을 유지하는 것이 중요합니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">발산 노래방 내돈내산 안내</a>
+        <p class="post-item__summary">노래방 이용 시 내 돈으로 직접 비용을 지불하는 방식을 내돈내산이라고 합니다. 발산 지역 내 노래방을 이용하려는 분들에게 이 방식은 비용에 대한 명확한 인식을 미리 가질 수 있게 해주는 중요한 포인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001-1kkgsf.html">발산 노래방 내돈내산 솔직 후기</a>
+        <p class="post-item__summary">발산역 인근에서 즐거운 음향 경험과 쾌적한 공간을 찾으시는 분들을 위해 꾸준한 방문을 통해 확인된 특징들을 정리해 드립니다. 노래방을 선택할 때 가장 중요하게 고려되는 요소인 음향 시설의 상태, 내</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
